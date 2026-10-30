@@ -5,6 +5,8 @@
   "scripts": {
     "studio": "remotion studio render/index.ts",
     "render:edu": "remotion render render/index.ts EduDemo out/edu-demo.mp4",
+    "render:edu-ai-01": "remotion render render/index.ts EduAiBai01 out/edu-ai-bai-01.mp4",
+    "render:edu-ai-02": "remotion render render/index.ts EduAiBai02 out/edu-ai-bai-02.mp4",
     "render:media": "remotion render render/index.ts MediaDemo out/media-demo.mp4",
     "render:b2b": "remotion render render/index.ts B2BDemo out/b2b-demo.mp4",
     "cover:real": "remotion still render/index.ts RealDemo out/real-cover.png --frame=45",

@@ -13,8 +13,8 @@ export type VideoContent = {
   orientation: Orientation;
   scenes: SceneDef[];
   showSafeGuide?: boolean;
-  voice?: string; // file giọng đọc trong public/ (vd "voice-hx01.mp3"), phát suốt video
   sound?: boolean; // mặc định bật: sting đầu/cuối + whoosh chuyển cảnh
+  voice?: string; // file giọng đọc trong public/, ví dụ "voice/bai-02.mp3"; có giọng thì sfx tự nhỏ lại
 };
 export type SceneRegistry = Record<string, React.FC<any>>;
 
@@ -39,16 +39,21 @@ const SceneFade: React.FC<{ duration: number; children: React.ReactNode }> = ({ 
   return <AbsoluteFill style={{ opacity: o }}>{children}</AbsoluteFill>;
 };
 
-const Sfx: React.FC<{ cue: SfxCue }> = ({ cue }) => (
+const VoiceDuck = React.createContext(1);
+const Sfx: React.FC<{ cue: SfxCue }> = ({ cue }) => {
+  const k = React.useContext(VoiceDuck);
+  return (
   <Sequence from={cue.at} layout="none">
-    <Audio src={staticFile(`sfx/${cue.name}.wav`)} volume={cue.volume ?? 0.6} />
+    <Audio src={staticFile(`sfx/${cue.name}.wav`)} volume={(cue.volume ?? 0.6) * k} />
   </Sequence>
-);
+  );
+};
 
 export const SceneRunner: React.FC<{ content: VideoContent; registry: SceneRegistry }> = ({ content, registry }) => {
   const sound = content.sound ?? true;
   const total = totalFrames(content);
   return (
+    <VoiceDuck.Provider value={content.voice ? 0.4 : 1}>
     <Frame branch={content.branch} orientation={content.orientation} showSafeGuide={content.showSafeGuide}>
       <Series>
         {content.scenes.map((s, i) => {
@@ -69,5 +74,6 @@ export const SceneRunner: React.FC<{ content: VideoContent; registry: SceneRegis
       {sound && <Sfx cue={{ at: 0, name: "logo", volume: 0.5 }} />}
       {sound && <Sfx cue={{ at: Math.max(0, total - 34), name: "end", volume: 0.5 }} />}
     </Frame>
+    </VoiceDuck.Provider>
   );
 };

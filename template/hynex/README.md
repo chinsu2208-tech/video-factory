@@ -43,3 +43,10 @@ Dùng cho nội dung quy trình, hướng dẫn, AI: kết quả đầu ra + quy
 - Hook đa dạng cho nhiều video: cảnh mở đầu `talk` dùng `preset: "auto"` (+ `seed` tuỳ chọn) để mỗi video tự có bố cục riêng (8 preset: stack, center-pill, left-bottom, split-right, left-top, center-big, right-bottom, split-left; đổi cả căn lề, cỡ, kiểu dòng dẫn, thứ tự chữ cứng/mềm, độ nghiêng). Chỉ 0–5s đầu đổi, các cảnh sau giữ nguyên. Bảng mẫu: `npm run render:real-hooks`.
 - Thumbnail: `npm run cover:real` (frame 45 của cảnh mở đầu).
 - Bảng màu chữ: `palette` của cảnh = brand (MẶC ĐỊNH, đã chọn) | lime-mono | kem-hong | sky-lime | nang-sanho. Xem `npm run` composition RealPalettes.
+
+## Hynex Edu – series "AI từ con số 0"
+- Mỗi tập = 1 file `content/edu-ai-bai-XX.ts` (VideoContent, branch edu, 6 cảnh ứng với 6 dòng kịch bản). Mẫu: `edu-ai-bai-02.ts` (có voice).
+- Voice đặt ở `public/voice/bai-XX.mp3`, khai báo `voice: "voice/bai-XX.mp3"`. Có voice thì SFX tự hạ còn 40%.
+- Đăng ký tập mới ở `render/Root.tsx` + script `render:edu-ai-XX` trong package.json.
+- Cảnh cuối (recap) luôn có "Hynex Edu · Làm chủ AI từ con số 0". Giữ vùng an toàn TikTok (trên 220, dưới 420, trái 64, phải 170).
+- Căn thời lượng cảnh theo voice: dùng thời điểm từ đầu/cuối giữa các cảnh (tools align), duration tính bằng frame @30fps.
