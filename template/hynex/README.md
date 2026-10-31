@@ -50,3 +50,19 @@ Dùng cho nội dung quy trình, hướng dẫn, AI: kết quả đầu ra + quy
 - Đăng ký tập mới ở `render/Root.tsx` + script `render:edu-ai-XX` trong package.json.
 - Cảnh cuối (recap) luôn có "Hynex Edu · Làm chủ AI từ con số 0". Giữ vùng an toàn TikTok (trên 220, dưới 420, trái 64, phải 170).
 - Căn thời lượng cảnh theo voice: dùng thời điểm từ đầu/cuối giữa các cảnh (tools align), duration tính bằng frame @30fps.
+
+## Hynex Edu — bộ cảnh mở rộng (10/2026)
+Ngoài hook/concept/steps/comparison/process/case/quiz/recap, có thêm các `type` sau (xem mẫu props trong `content/edu-components-demo.ts`):
+- `chat` {title?, messages:[{kind:"human"|"ai", text}], tip?} — khung chat ChatGPT giả lập, AI gõ từng chữ. Dùng cho bài ChatGPT/hỏi đáp.
+- `phone` {title, appTitle, rows:[{icon,text,sub}], tapIndex, tapAt, caption?} — điện thoại có danh sách + chạm. Dùng cho "Thử ngay" trên máy.
+- `prompt` {title, prompt, result, tip?} — gõ câu lệnh rồi AI trả lời.
+- `bignum` {label?, value, prefix?, suffix?, sub, icon?, tip?} — con số lớn.
+- `beforeafter` {title, before:{text}, after:{text}, tip?} — hỏi dở vs hỏi tốt.
+- `checklist` {title, items:[{text, ok}], tip?} — nên / không nên.
+- `myth` {myth, fact, tip?} — hiểu lầm vs sự thật.
+- `timeline` {title, events:[{time,title,detail}], tip?} — các mốc nối nhau.
+- `countdown` {from?, lead?, go?, sub?} — 3-2-1 "Thử ngay!" (~130 khung).
+- `notify` {title, items:[{icon,title,body}], tip?} — thông báo nổi.
+- `table` {title, columns, rows, tip?} — bảng nhỏ ≤4 dòng × 3 cột.
+- `photo` {title, src (trong public/), caption?, tip?} — ảnh có chú thích.
+Quy tắc đa dạng: mỗi tập dùng ≥1 cảnh mới phù hợp nội dung, không dùng cùng một loại quá 2 lần; cảnh đầu luôn là hook, cảnh cuối luôn là recap.

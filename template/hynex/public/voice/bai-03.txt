@@ -1,0 +1,6 @@
+Khi AI học xong, thứ nó giữ lại là gì? Mình gọi nó là mô hình. Hiểu đơn giản, đó là bộ não của AI.
+Nghĩ về một đầu bếp giỏi, nấu hàng nghìn bữa rồi viết hết kinh nghiệm thành một cuốn sách. Từ đó, ai hỏi món gì, chỉ cần mở sách ra là có câu trả lời. Cuốn sách đó chính là mô hình.
+Mô hình là kết quả sau khi AI học xong. Học thì tốn nhiều thời gian và tiền. Dùng thì rất nhanh.
+Mỗi ứng dụng AI chạy bằng một mô hình riêng, do các công ty khác nhau làm ra. Giống như mỗi nhà xuất bản có một cuốn sách nấu ăn riêng. Nên cùng một câu hỏi, mỗi ứng dụng có thể trả lời khác nhau.
+Thử ngay: xem điện thoại của bạn đã có ứng dụng AI nào chưa. Chưa có cũng không sao, mình sẽ nói tiếp ở các tập sau.
+Nhớ nhé: mô hình là bộ não của AI sau khi học xong. Tập sau: ChatGPT có phải là AI không?
