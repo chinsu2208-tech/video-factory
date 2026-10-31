@@ -1,0 +1,63 @@
+{
+ "durationSec": 34,
+ "fxSeed": 3,
+ "brandName": "TÊN KÊNH",
+ "handle": "@tenkenh",
+ "hookTag": "Sự thật ít ai nói",
+ "hookLines": [
+  "MẸ BỈM NÀO CŨNG",
+  "GẶP *CHUYỆN NÀY*,",
+  "NHƯNG ÍT AI BIẾT!"
+ ],
+ "cta": "Theo dõi để xem thêm mẹo hay cho mẹ & bé",
+ "benefits": [
+  "Thơm nhẹ cả ngày",
+  "An toàn cho da bé",
+  "Xịt là thơm ngay",
+  "Gọn nhẹ bỏ túi"
+ ],
+ "captions": [
+  "",
+  "",
+  "Mẹ nào cũng mê",
+  "",
+  "Xịt là thơm ngay",
+  "",
+  "Thử là ghiền",
+  "",
+  "",
+  "",
+  "",
+  ""
+ ],
+ "videos": [
+  "c1.mp4",
+  "c2.mp4",
+  "c3.mp4",
+  "c7.mp4",
+  "c8.mp4",
+  "c9.mp4"
+ ],
+ "images": [
+  {
+   "kind": "product",
+   "src": "sp.jpg",
+   "caption": "Xịt thơm Baby"
+  }
+ ],
+ "stats": [
+  {
+   "kicker": "Chỉ sau",
+   "value": 7,
+   "suffix": " ngày",
+   "label": "tủ đồ thơm nhẹ cả tuần"
+  },
+  {
+   "prefix": "+",
+   "value": 5000,
+   "suffix": " mẹ",
+   "kicker": "Đã tin dùng",
+   "label": "mẹ bỉm trên cả nước"
+  }
+ ]
+}

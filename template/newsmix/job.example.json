@@ -1,0 +1,14 @@
+{
+  "durationSec": 45,
+  "voice": "voice.mp3",
+  "brandName": "TÊN KÊNH",
+  "handle": "@tenkenh",
+  "hookLines": ["MẸ BỈM NÀO CŨNG", "GẶP CHUYỆN NÀY,", "NHƯNG ÍT AI BIẾT!"],
+  "cta": "Theo dõi để xem thêm mẹo hay cho mẹ & bé",
+  "videos": ["v1.mp4","v2.mp4","v3.mp4","v4.mp4","v5.mp4","v6.mp4","v7.mp4","v8.mp4"],
+  "images": [
+    {"kind": "product", "src": "sp.jpg", "caption": "Tên sản phẩm"},
+    {"kind": "feedback", "src": "fb1.jpg", "caption": "Mẹ bé Su · Hà Nội"},
+    {"kind": "feedback", "src": "fb2.jpg", "caption": "Mẹ bé Bin · Đà Nẵng"}
+  ]
+}
