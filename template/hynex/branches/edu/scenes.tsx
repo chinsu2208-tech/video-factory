@@ -3,7 +3,7 @@
 import React from "react";
 import { Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { color, font, radius, space, tilePalette } from "../../brand/tokens";
-import { AnimatedHeadline, Button, ChatBubble, ClickRipple, Notification, PhoneMockup, ComparisonCard, Confetti, FlowDiagram, IconTile, InfoCard, KineticText, ProgressBar, Squiggle, StepByStep, Sticker, cardStyle, useEnter, useFloat, useHynex, useWiggle } from "../../core-components";
+import { AnimatedHeadline, Button, BrowserWindow, ChatBubble, ClickRipple, Notification, PhoneMockup, ComparisonCard, Confetti, FlowDiagram, IconTile, InfoCard, KineticText, ProgressBar, Squiggle, StepByStep, Sticker, cardStyle, useEnter, useFloat, useHynex, useWiggle } from "../../core-components";
 import { Stage } from "../../scenes/SceneRunner";
 
 /** Nhãn mục: số + tên mục, dạng viên thuốc */
@@ -236,66 +236,89 @@ export const EduChat: React.FC<{ title?: string; messages: { side?: "left" | "ri
   );
 };
 
-/** phone: điện thoại với danh sách/ứng dụng bên trong, có chạm (ripple) vào một dòng. */
+/** phone: điện thoại lớn gần hết khung, danh sách/ứng dụng bên trong, chạm vào một dòng; chú thích nằm trong màn hình. */
 export const EduPhone: React.FC<{ title: string; appTitle?: string; rows: { icon: string; text: string; sub?: string }[]; tapIndex?: number; tapAt?: number; caption?: string }> = ({ title, appTitle = "Điện thoại của bạn", rows, tapIndex = 0, tapAt = 60, caption }) => {
   const frame = useCurrentFrame();
-  const W = 360;
-  const headH = 130, rowH = 92;
+  const W = 450;
+  const headH = 150, rowH = 112;
   const tapped = frame >= tapAt;
+  const cp = useEnter(tapAt + 8, "pop");
   return (
-    <Stage justify="start" gap={18}>
-      <Label n="📱" text="Trên điện thoại" />
-      <AnimatedHeadline text={title} size={50} />
+    <Stage justify="start" gap={14}>
+      <AnimatedHeadline text={title} size={54} />
       <div style={{ alignSelf: "center" }}>
-        <PhoneMockup width={W} delay={6} float={false}>
+        <PhoneMockup width={W} delay={4} float={false}>
           <div style={{ position: "absolute", inset: 0, background: "#F6F7F9", fontFamily: font.body }}>
-            <div style={{ height: headH, background: color.ink, color: "#fff", display: "flex", alignItems: "flex-end", padding: "0 22px 14px", fontFamily: font.display, fontWeight: 900, fontSize: 28 }}>{appTitle}</div>
+            <div style={{ height: headH, background: color.ink, color: "#fff", display: "flex", alignItems: "flex-end", padding: "0 26px 16px", fontFamily: font.display, fontWeight: 900, fontSize: 34 }}>{appTitle}</div>
             {rows.map((r, i) => {
-              const p = Math.min(1, Math.max(0, (frame - (14 + i * 7)) / 8));
+              const p = Math.min(1, Math.max(0, (frame - (12 + i * 7)) / 8));
               const hit = tapped && i === tapIndex;
               return (
-                <div key={i} style={{ height: rowH, display: "flex", alignItems: "center", gap: 16, padding: "0 20px", borderBottom: "2px solid #E4E7EC", background: hit ? color.lime : "#fff", opacity: p, transform: `translateX(${(1 - p) * 40}px)` }}>
-                  <div style={{ fontSize: 44, fontFamily: font.emoji }}>{r.icon}</div>
+                <div key={i} style={{ height: rowH, display: "flex", alignItems: "center", gap: 20, padding: "0 26px", borderBottom: "2px solid #E4E7EC", background: hit ? color.lime : "#fff", opacity: p, transform: `translateX(${(1 - p) * 40}px)` }}>
+                  <div style={{ fontSize: 54, fontFamily: font.emoji }}>{r.icon}</div>
                   <div>
-                    <div style={{ fontSize: 26, fontWeight: 800 }}>{r.text}</div>
-                    {r.sub && <div style={{ fontSize: 20, color: color.muted, fontWeight: 600 }}>{r.sub}</div>}
+                    <div style={{ fontSize: 32, fontWeight: 800 }}>{r.text}</div>
+                    {r.sub && <div style={{ fontSize: 24, color: color.muted, fontWeight: 600 }}>{r.sub}</div>}
                   </div>
                 </div>
               );
             })}
-            <ClickRipple x={W * 0.5} y={headH + tapIndex * rowH + rowH / 2} at={tapAt} size={120} />
+            <ClickRipple x={W * 0.5} y={headH + tapIndex * rowH + rowH / 2} at={tapAt} size={140} />
+            {caption && (
+              <div style={{ position: "absolute", left: 22, right: 22, bottom: 56, background: color.sun, border: `4px solid ${color.ink}`, borderRadius: 22, boxShadow: `5px 5px 0 ${color.ink}`, padding: "16px 22px", fontSize: 32, fontWeight: 800, lineHeight: 1.3, opacity: Math.min(1, cp * 2), transform: `translateY(${(1 - Math.min(1, cp)) * 30}px)` }}>👆 {caption}</div>
+            )}
           </div>
         </PhoneMockup>
       </div>
-      {caption && <Tip text={caption} delay={tapAt + 10} emoji="👆" />}
     </Stage>
   );
 };
 
-/** prompt: ô nhập câu lệnh gõ dần, rồi hiện kết quả của AI. */
-export const EduPrompt: React.FC<{ title: string; prompt: string; result: string; tip?: string }> = ({ title, prompt, result, tip }) => {
-  const { theme } = useHynex();
+/** prompt: cửa sổ trình duyệt giả lập (kiểu ChatGPT): gõ câu lệnh vào ô nhập, gửi đi, AI trả lời từng chữ. */
+export const EduPrompt: React.FC<{ title: string; prompt: string; result: string; tip?: string; url?: string; appName?: string }> = ({ title, prompt, result, tip, url = "chatgpt.com", appName = "ChatGPT" }) => {
   const frame = useCurrentFrame();
-  const typeEnd = 18 + prompt.length * 1.2;
-  const shown = prompt.slice(0, Math.max(0, Math.floor((frame - 18) / 1.2)));
+  const typeStart = 20;
+  const typeEnd = typeStart + prompt.length * 1.2;
+  const sendAt = Math.ceil(typeEnd) + 10;
+  const sent = frame >= sendAt;
+  const shownPrompt = prompt.slice(0, Math.max(0, Math.floor((frame - typeStart) / 1.2)));
   const cursor = Math.floor(frame / 8) % 2 === 0 ? "▍" : " ";
-  const pr = useEnter(Math.ceil(typeEnd) + 14, "pop");
-  const shownRes = result.slice(0, Math.max(0, Math.floor((frame - typeEnd - 24) * 1.4)));
+  const replyStart = sendAt + 22;
+  const shownRes = result.slice(0, Math.max(0, Math.floor((frame - replyStart) * 1.4)));
+  const dots = frame >= sendAt && frame < replyStart;
+  const up = useEnter(sendAt, "pop");
   return (
-    <Stage justify="start" gap={24}>
+    <Stage justify="start" gap={22}>
       <Label n="⌨️" text="Gõ câu lệnh" />
-      <AnimatedHeadline text={title} size={54} />
-      <div style={{ ...cardStyle(theme, { shadowOffset: 6 }), padding: "22px 28px", minHeight: 150, display: "flex", gap: 16, alignItems: "flex-start" }}>
-        <div style={{ fontSize: 46, fontFamily: font.emoji }}>🧑</div>
-        <div style={{ fontSize: 36, lineHeight: 1.4, fontWeight: 700 }}>{shown}<span style={{ color: color.limeDeep }}>{cursor}</span></div>
-      </div>
-      {frame > typeEnd + 8 && (
-        <div style={{ ...cardStyle(theme, { shadowOffset: 6 }), background: color.limeSoft, padding: "22px 28px", display: "flex", gap: 16, alignItems: "flex-start", opacity: Math.min(1, pr * 2), transform: `translateY(${(1 - Math.min(1, pr)) * 30}px)` }}>
-          <div style={{ fontSize: 46, fontFamily: font.emoji }}>🤖</div>
-          <div style={{ fontSize: 34, lineHeight: 1.42, fontWeight: 600 }}>{shownRes}</div>
+      <AnimatedHeadline text={title} size={52} />
+      <BrowserWindow url={url} height={690} delay={4}>
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 22, background: "#fff" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            <div style={{ fontFamily: font.display, fontWeight: 900, fontSize: 26, color: color.muted, textAlign: "center" }}>{appName}</div>
+            {sent && (
+              <div style={{ alignSelf: "flex-end", maxWidth: "88%", background: color.lime, border: `4px solid ${color.ink}`, borderRadius: 24, borderBottomRightRadius: 6, padding: "16px 22px", fontSize: 32, lineHeight: 1.35, fontWeight: 700, opacity: Math.min(1, up * 2), transform: `translateY(${(1 - Math.min(1, up)) * 40}px)` }}>{prompt}</div>
+            )}
+            {dots && (
+              <div style={{ display: "flex", gap: 10, padding: "10px 6px" }}>
+                {[0, 1, 2].map((i) => (<div key={i} style={{ width: 16, height: 16, borderRadius: 8, background: color.ink, opacity: 0.3 + 0.7 * Math.max(0, Math.sin((frame - i * 4) / 4)) }} />))}
+              </div>
+            )}
+            {frame >= replyStart && (
+              <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <div style={{ fontSize: 44, fontFamily: font.emoji }}>🤖</div>
+                <div style={{ fontSize: 31, lineHeight: 1.45, fontWeight: 600, background: color.limeSoft, border: `3px solid ${color.ink}`, borderRadius: 20, padding: "14px 20px" }}>{shownRes}</div>
+              </div>
+            )}
+          </div>
+          <div style={{ border: `4px solid ${color.ink}`, borderRadius: 999, padding: "14px 26px", display: "flex", alignItems: "center", gap: 14, minHeight: 64, background: "#fff" }}>
+            <div style={{ flex: 1, fontSize: 30, fontWeight: 600, lineHeight: 1.3, color: sent ? color.muted : color.ink, overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>
+              {sent ? "Nhắn tin cho " + appName + "…" : <>{shownPrompt}<span style={{ color: color.limeDeep }}>{cursor}</span></>}
+            </div>
+            <div style={{ width: 52, height: 52, borderRadius: 26, background: sent ? "#ccc" : color.ink, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, fontWeight: 900 }}>↑</div>
+          </div>
         </div>
-      )}
-      {tip && <Tip text={tip} delay={Math.ceil(typeEnd) + 24 + Math.ceil(result.length / 1.4)} />}
+      </BrowserWindow>
+      {tip && <Tip text={tip} delay={replyStart + Math.ceil(result.length / 1.4)} />}
     </Stage>
   );
 };
