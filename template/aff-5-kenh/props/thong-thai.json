@@ -1,0 +1,84 @@
+{
+ "scenes": [
+  {
+   "src": {
+    "type": "clip",
+    "file": "k3",
+    "startSec": 0
+   },
+   "sub": "Mình đọc nhãn xem ba hoạt chất này làm gì",
+   "lead": "Đọc nhãn cùng mình",
+   "big": "3 hoạt chất",
+   "bigSize": 150,
+   "line": "GlutaGlow · Hyaluron · Niacinamide"
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k2",
+    "startSec": 0
+   },
+   "sub": "Mình test thử trước cho mẹ xem",
+   "scrim": false
+  },
+  {
+   "src": {
+    "type": "still",
+    "file": "S1"
+   },
+   "sub": "Nhãn ghi ba hoạt chất, kết cấu dạng serum hạt nước",
+   "scrim": false,
+   "callouts": [
+    {
+     "dot": [
+      528,
+      835
+     ],
+     "text": "3 hoạt chất ghi trên nhãn",
+     "top": 780
+    },
+    {
+     "dot": [
+      752,
+      770
+     ],
+     "text": "Dạng serum hạt nước",
+     "top": 1000
+    }
+   ]
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k1",
+    "startSec": 0
+   },
+   "sub": "Mỗi hoạt chất một việc, theo như hãng công bố",
+   "lead": "Hãng công bố"
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k2",
+    "startSec": 2.4
+   },
+   "sub": "Theo hãng, kết cấu mỏng nhẹ, thấm nhanh",
+   "lead": "Theo hãng",
+   "big": "Thấm nhanh",
+   "bigSize": 140,
+   "line": "Không bết dính"
+  },
+  {
+   "src": {
+    "type": "still",
+    "file": "S1"
+   },
+   "sub": "Mẹ đọc nhãn rồi chọn, giỏ hàng ở dưới video",
+   "big": "Đọc nhãn rồi chọn",
+   "bigSize": 110
+  }
+ ],
+ "sceneSec": 2.6,
+ "xfSec": 0.4,
+ "debug": false
+}

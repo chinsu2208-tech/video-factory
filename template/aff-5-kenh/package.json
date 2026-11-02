@@ -1,0 +1,21 @@
+{
+  "name": "aff-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:tk": "remotion render src/index.ts TietKiem out/tiet-kiem.mp4 --props=props/tiet-kiem.json",
+    "render:tt": "remotion render src/index.ts ThongThai out/thong-thai.mp4 --props=props/thong-thai.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "@remotion/media": "4.0.540",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}

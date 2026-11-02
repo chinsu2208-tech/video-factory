@@ -1,0 +1,87 @@
+{
+ "scenes": [
+  {
+   "src": {
+    "type": "clip",
+    "file": "k3",
+    "startSec": 0
+   },
+   "sub": "Tính ra mỗi ml chưa tới năm trăm đồng, mẹ ơi",
+   "lead": "Dưỡng thể 300ml, tính ra mỗi ml",
+   "big": "≈470đ",
+   "bigSize": 190,
+   "line": "Giá tham khảo 140k",
+   "small": "Watsons VN, xem giỏ hàng để biết giá hôm nay"
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k1",
+    "startSec": 0
+   },
+   "sub": "Bôi thử luôn cho mẹ xem",
+   "scrim": false
+  },
+  {
+   "src": {
+    "type": "still",
+    "file": "S1"
+   },
+   "sub": "Trên nhãn có ba hoạt chất, hãng còn nói có jelly khóa ẩm",
+   "scrim": false,
+   "callouts": [
+    {
+     "dot": [
+      528,
+      835
+     ],
+     "text": "3 hoạt chất trên nhãn",
+     "top": 780
+    },
+    {
+     "dot": [
+      551,
+      1194
+     ],
+     "text": "Có Vaseline Jelly khóa ẩm (hãng nói)",
+     "top": 1120
+    }
+   ]
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k2",
+    "startSec": 0
+   },
+   "sub": "Hãng nói thấm nhanh, không bết dính",
+   "scrim": false
+  },
+  {
+   "src": {
+    "type": "clip",
+    "file": "k2",
+    "startSec": 2.4
+   },
+   "sub": "Chia ra mỗi ml chưa tới năm trăm đồng",
+   "lead": "Tính nhẩm cho mẹ",
+   "big": "140k ÷ 300ml",
+   "bigSize": 130,
+   "line": "≈ 470đ mỗi ml",
+   "small": "Giá tham khảo, có thể đổi theo ngày"
+  },
+  {
+   "src": {
+    "type": "still",
+    "file": "S1"
+   },
+   "sub": "Giỏ hàng ở dưới video, mẹ vào xem giá hôm nay nhé",
+   "big": "Giỏ hàng",
+   "bigSize": 170,
+   "line": "↓ xem giá hôm nay"
+  }
+ ],
+ "sceneSec": 2.6,
+ "xfSec": 0.4,
+ "debug": false
+}
