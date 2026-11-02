@@ -8,3 +8,9 @@ Nguồn: Google Sheet SAN_PHAM (id 1DNsDQjn3axS5eXTE4hz9cYBSmK3FwOSV-t2mWU7jOks)
 4. `scripts/prep_clip.sh` tạo clip boomerang; `scripts/build_props.py` tạo props (mỗi đoạn script = 1 cảnh). Chữ lead/big/line/small chỉ lấy sự thật trong script, không thêm claim.
 5. `npx remotion render src/index.ts TietKiem|ThongThai out/<tên>.mp4 --props=...`. Kiểm tra vài khung (chữ trong vùng an toàn, sub không đè), độ dài video ≈ voice + 0,8s.
 6. Ghi video vào thư mục Video, đặt tên `AFF-SP<số>_kenh<A|B>_<tên-sp>.mp4`, ghi tên file vào AF/AG của hàng đó.
+
+
+## Cập nhật: dùng TẤT CẢ clip sạch + nhiều shot
+- Prep MỌI clip sạch của SP (nz1, nz2, nz3...), không chỉ 1 clip.
+- Sau khi viết props (mỗi đoạn = 1 cảnh có chữ), chạy: `python3 scripts/build_shots.py props/cu.json props/moi.json nz1,nz2,nz3 10.08` -> mỗi đoạn voice tách thành shot 2-3s, đổi clip + crop liên tục, chữ lớn chỉ ở shot đầu.
+- Mục tiêu: mỗi 2-3s đổi cảnh/góc, không để 1 cảnh đứng yên >3.5s.
