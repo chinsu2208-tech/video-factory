@@ -28,3 +28,9 @@ Thêm "debug": true để vẽ khung vùng an toàn.
 - Không commit clip Kling, font (giấy phép riêng) và ảnh sản phẩm: `public/clips`, `public/fonts`, `public/stills` đã nằm trong .gitignore.
 - Mới có 2 kênh thí điểm: A Tiết Kiệm, B Thông Thái. Còn C FOMO, D Lười, E Khó Tính – An Toàn.
 - Nội dung trong props/*.json là bản demo (số mẫu: giá 140k, 300ml). Kiểm tra lại số thật trước khi đăng.
+
+## Chế độ có voice (dựng tự động hằng ngày)
+- Thêm `"voice": "SP5_kenhA.mp3"` vào props (file để ở `public/voice/`) thì video có tiếng.
+- Mỗi scene có thể có `"sec"` (giây). Độ dài video = tổng các scene trừ phần chuyển mờ, nên đặt tổng `sec` bằng độ dài voice (+ ~0,5s đệm cuối).
+- Chia câu: mỗi scene 1 câu của script làm `sub`; thời lượng chia theo số ký tự của câu.
+- Sản phẩm mới không có toạ độ callout thì bỏ `callouts`, chỉ dùng chữ (lead / big / line / small).

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   AbsoluteFill,
+  Audio,
   Img,
   OffthreadVideo,
   Sequence,
@@ -202,19 +203,27 @@ const SceneView: React.FC<{scene: Scene; theme: Theme; frames: number; fadeIn: n
   );
 };
 
+const sceneFrames = (p: AffProps, fps: number) => p.scenes.map((sc) => Math.round((sc.sec ?? p.sceneSec) * fps));
+
 export const makeAffVideo = (theme: Theme): React.FC<AffProps> => {
-  const Comp: React.FC<AffProps> = ({scenes, sceneSec, xfSec, debug}) => {
+  const Comp: React.FC<AffProps> = (props) => {
     loadFonts();
     const {fps} = useVideoConfig();
-    const sf = Math.round(sceneSec * fps);
-    const xf = Math.round(xfSec * fps);
+    const xf = Math.round(props.xfSec * fps);
+    const frames = sceneFrames(props, fps);
+    let from = 0;
     return (
       <AbsoluteFill style={{background: '#000'}}>
-        {scenes.map((scene, i) => (
-          <Sequence key={i} from={i * (sf - xf)} durationInFrames={sf}>
-            <SceneView scene={scene} theme={theme} frames={sf} fadeIn={i === 0 ? 0 : xf} debug={debug} />
-          </Sequence>
-        ))}
+        {props.scenes.map((scene, i) => {
+          const start = from;
+          from += frames[i] - xf;
+          return (
+            <Sequence key={i} from={start} durationInFrames={frames[i]}>
+              <SceneView scene={scene} theme={theme} frames={frames[i]} fadeIn={i === 0 ? 0 : xf} debug={props.debug} />
+            </Sequence>
+          );
+        })}
+        {props.voice ? <Audio src={staticFile(`voice/${props.voice}`)} /> : null}
       </AbsoluteFill>
     );
   };
@@ -222,7 +231,7 @@ export const makeAffVideo = (theme: Theme): React.FC<AffProps> => {
 };
 
 export const totalFrames = (p: AffProps, fps = 30) => {
-  const sf = Math.round(p.sceneSec * fps);
   const xf = Math.round(p.xfSec * fps);
-  return p.scenes.length * sf - (p.scenes.length - 1) * xf;
+  const fr = sceneFrames(p, fps);
+  return fr.reduce((a, b) => a + b, 0) - (fr.length - 1) * xf;
 };

@@ -17,6 +17,7 @@ export type Scene = {
   small?: string; // dòng nhỏ
   callouts?: Callout[];
   sub: string; // dòng sub
+  sec?: number; // độ dài cảnh (giây); bỏ trống = sceneSec
   scrim?: boolean; // mặc định true khi có chữ
 };
 
@@ -24,5 +25,6 @@ export type AffProps = {
   scenes: Scene[];
   sceneSec: number; // mặc định 2.6
   xfSec: number; // mặc định 0.4
+  voice?: string; // tên file mp3 trong public/voice/ (có thì phát tiếng)
   debug?: boolean; // vẽ khung vùng an toàn
 };
