@@ -15,10 +15,18 @@ import type {AffProps, Callout, Scene} from './types';
 import type {Theme} from './themes';
 import {loadFonts} from './fonts';
 
-// Vùng an toàn TikTok: x 40–930, y 200–1500. Sub y 1290–1425. Chữ chính nằm trên y 1270.
-const SAFE = {x0: 40, x1: 930, y0: 200, y1: 1500, textBottom: 1270, subTop: 1290};
+// VÙNG AN TOÀN TIKTOK (đã đo từ ảnh chụp thật, màn hình dài ~9:20 phóng video nên cắt ~100px mỗi bên):
+// x 130–850 (phải chừa cột icon x>870), y 220–1380 (trên: thanh tìm kiếm; dưới: chip sản phẩm + tên kênh từ y≈1410).
+// Chữ chính nằm trên y 1255; sub (tối đa 2 dòng) y 1280–1390.
+const SAFE = {x0: 130, x1: 850, y0: 220, y1: 1390, textBottom: 1255, subTop: 1280};
+const SAFE_W = SAFE.x1 - SAFE.x0;
+// cỡ chữ lớn tự co để từ dài nhất không tràn vùng an toàn (≈0.66*size mỗi ký tự với font đậm)
+const fitBig = (txt: string, size: number) => {
+  const longest = Math.max(...txt.split(/\s+/).map((w) => w.length), 1);
+  return Math.min(size, Math.floor(SAFE_W / (0.66 * longest)));
+};
 
-const splitSub = (t: string, max = 46): string[] => {
+const splitSub = (t: string, max = 28): string[] => {
   const parts = t.split(/(?<=[.,;!?])\s+/);
   const out: string[] = [];
   let cur = '';
@@ -101,19 +109,19 @@ const TextStack: React.FC<{scene: Scene; theme: Theme}> = ({scene, theme}) => {
     >
       {scene.lead && (
         <Rise delay={4}>
-          <div style={{fontFamily: theme.accentFont, fontSize: 60, opacity: 0.92, lineHeight: 1.15}}>{scene.lead}</div>
+          <div style={{fontFamily: theme.accentFont, fontSize: 54, opacity: 0.92, lineHeight: 1.15}}>{scene.lead}</div>
         </Rise>
       )}
       {scene.big && (
         <Rise delay={8} style={{marginTop: 6}}>
-          <div style={{fontFamily: theme.mainFont, fontWeight: theme.bigWeight, fontSize: scene.bigSize ?? 150, lineHeight: 1.05}}>
+          <div style={{fontFamily: theme.mainFont, fontWeight: theme.bigWeight, fontSize: fitBig(scene.big, scene.bigSize ?? 150), lineHeight: 1.05}}>
             {scene.big}
           </div>
         </Rise>
       )}
       {scene.line && (
         <Rise delay={12} style={{marginTop: 12}}>
-          <div style={{fontFamily: theme.mainFont, fontWeight: 700, fontSize: 56, color: theme.highlight}}>{scene.line}</div>
+          <div style={{fontFamily: theme.mainFont, fontWeight: 700, fontSize: 50, color: theme.highlight}}>{scene.line}</div>
         </Rise>
       )}
       {scene.small && (
@@ -131,7 +139,7 @@ const CalloutView: React.FC<{c: Callout; i: number; theme: Theme}> = ({c, i, the
   const start = 14 + i * 8;
   const s = spring({frame: frame - start, fps, config: {damping: 14, stiffness: 120}});
   const draw = interpolate(frame, [start, start + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const x1 = 330;
+  const x1 = SAFE.x0 + 290;
   const y1 = c.top + 56;
   const [dx, dy] = c.dot;
   const len = Math.hypot(dx - x1, dy - y1);
@@ -224,7 +232,8 @@ const SceneView: React.FC<{scene: Scene; theme: Theme; frames: number; fadeIn: n
           color: '#fff',
           fontFamily: theme.mainFont,
           fontWeight: 700,
-          fontSize: 44,
+          fontSize: 42,
+          textWrap: 'balance' as const,
           lineHeight: 1.25,
           textShadow: '0 2px 12px rgba(0,0,0,.7), 0 0 4px rgba(0,0,0,.5)',
           opacity: subOp,

@@ -14,3 +14,11 @@ Nguồn: Google Sheet SAN_PHAM (id 1DNsDQjn3axS5eXTE4hz9cYBSmK3FwOSV-t2mWU7jOks)
 - Prep MỌI clip sạch của SP (nz1, nz2, nz3...), không chỉ 1 clip.
 - Sau khi viết props (mỗi đoạn = 1 cảnh có chữ), chạy: `python3 scripts/build_shots.py props/cu.json props/moi.json nz1,nz2,nz3 10.08` -> mỗi đoạn voice tách thành shot 2-3s, đổi clip + crop liên tục, chữ lớn chỉ ở shot đầu.
 - Mục tiêu: mỗi 2-3s đổi cảnh/góc, không để 1 cảnh đứng yên >3.5s.
+
+
+## VÙNG AN TOÀN TIKTOK (BẮT BUỘC, đo từ ảnh chụp thật 2/11/2026)
+Khung 1080x1920. TikTok phóng video lên nên CẮT ~100px mỗi bên.
+- Chữ/sub/callout nằm trong **x 130–850, y 220–1380**.
+- Cột icon bên phải bắt đầu x≈870; thanh tìm kiếm trên hết ở y≈205; chip sản phẩm + tên kênh bên dưới từ y≈1410.
+- Chữ lớn nằm trên y 1255; sub tối đa 2 dòng (y 1280–1390, tối đa 28 ký tự/chunk).
+- Hằng số nằm ở `SAFE` trong `src/AffVideo.tsx` (chữ lớn tự co bằng `fitBig`). Muốn kiểm tra: đặt `debug: true` trong props để vẽ khung xanh. Mọi template mới phải theo đúng khung này.

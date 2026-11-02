@@ -34,3 +34,6 @@ Thêm "debug": true để vẽ khung vùng an toàn.
 - Mỗi scene có thể có `"sec"` (giây). Độ dài video = tổng các scene trừ phần chuyển mờ, nên đặt tổng `sec` bằng độ dài voice (+ ~0,5s đệm cuối).
 - Chia câu: mỗi scene 1 câu của script làm `sub`; thời lượng chia theo số ký tự của câu.
 - Sản phẩm mới không có toạ độ callout thì bỏ `callouts`, chỉ dùng chữ (lead / big / line / small).
+
+
+> **Vùng an toàn TikTok:** x 130–850, y 220–1380 (chi tiết trong DAILY.md). Không đặt chữ ngoài khung này.
