@@ -18,18 +18,52 @@ import {loadFonts} from './fonts';
 // Vùng an toàn TikTok: x 40–930, y 200–1500. Sub y 1290–1425. Chữ chính nằm trên y 1270.
 const SAFE = {x0: 40, x1: 930, y0: 200, y1: 1500, textBottom: 1270, subTop: 1290};
 
+const splitSub = (t: string, max = 46): string[] => {
+  const parts = t.split(/(?<=[.,;!?])\s+/);
+  const out: string[] = [];
+  let cur = '';
+  for (const part of parts) {
+    if ((cur + ' ' + part).trim().length <= max) cur = (cur + ' ' + part).trim();
+    else {
+      if (cur) out.push(cur);
+      if (part.length <= max) cur = part;
+      else {
+        const words = part.split(' ');
+        cur = '';
+        for (const w of words) {
+          if ((cur + ' ' + w).trim().length <= max) cur = (cur + ' ' + w).trim();
+          else {
+            out.push(cur);
+            cur = w;
+          }
+        }
+      }
+    }
+  }
+  if (cur) out.push(cur);
+  if (out.length > 1 && out[out.length - 1].length < 14) {
+    const last = out.pop() as string;
+    out[out.length - 1] = `${out[out.length - 1]} ${last}`;
+  }
+  return out;
+};
+
 const shadow = '0 2px 14px rgba(0,0,0,.55)';
 
 const Background: React.FC<{scene: Scene; frames: number}> = ({scene, frames}) => {
   const frame = useCurrentFrame();
   if (scene.src.type === 'clip') {
+    const c = scene.crop ?? {scale: 1, fx: 0.5, fy: 0.5};
+    const z = c.scale * interpolate(frame, [0, frames], [1, 1.04]);
     return (
-      <OffthreadVideo
-        src={staticFile(`clips/${scene.src.file}.mp4`)}
-        startFrom={Math.round(scene.src.startSec * 30)}
-        muted
-        style={{width: 1080, height: 1920, objectFit: 'cover'}}
-      />
+      <AbsoluteFill style={{overflow: 'hidden'}}>
+        <OffthreadVideo
+          src={staticFile(`clips/${scene.src.file}.mp4`)}
+          startFrom={Math.round(scene.src.startSec * 30)}
+          muted
+          style={{width: 1080, height: 1920, objectFit: 'cover', transform: `scale(${z})`, transformOrigin: `${c.fx * 100}% ${c.fy * 100}%`}}
+        />
+      </AbsoluteFill>
     );
   }
   const zoom = interpolate(frame, [0, frames], [1, 1.035]);
@@ -160,6 +194,18 @@ const SceneView: React.FC<{scene: Scene; theme: Theme; frames: number; fadeIn: n
   const showScrim = scene.scrim ?? hasText;
   const opacity = fadeIn > 0 ? interpolate(frame, [0, fadeIn], [0, 1], {extrapolateRight: 'clamp'}) : 1;
   const subOp = interpolate(frame, [6, 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const chunks = splitSub(scene.sub);
+  const total = chunks.reduce((a, b) => a + b.length, 0) || 1;
+  const prog = Math.min(0.999, frame / Math.max(1, frames - 12));
+  let acc = 0;
+  let subText = chunks[chunks.length - 1] ?? '';
+  for (const ch of chunks) {
+    acc += ch.length / total;
+    if (prog < acc) {
+      subText = ch;
+      break;
+    }
+  }
   return (
     <AbsoluteFill style={{opacity}}>
       <Background scene={scene} frames={frames} />
@@ -184,7 +230,7 @@ const SceneView: React.FC<{scene: Scene; theme: Theme; frames: number; fadeIn: n
           opacity: subOp,
         }}
       >
-        {scene.sub}
+        {subText}
       </div>
       {debug && (
         <div

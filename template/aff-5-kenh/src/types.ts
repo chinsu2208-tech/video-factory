@@ -17,6 +17,7 @@ export type Scene = {
   small?: string; // dòng nhỏ
   callouts?: Callout[];
   sub: string; // dòng sub
+  crop?: {scale: number; fx: number; fy: number}; // phóng to clip quanh điểm (fx, fy) 0..1 để mỗi cảnh một góc khác
   sec?: number; // độ dài cảnh (giây); bỏ trống = sceneSec
   scrim?: boolean; // mặc định true khi có chữ
 };

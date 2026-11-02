@@ -1,0 +1,10 @@
+# Quy trình dựng hằng ngày (7h)
+
+Nguồn: Google Sheet SAN_PHAM (id 1DNsDQjn3axS5eXTE4hz9cYBSmK3FwOSV-t2mWU7jOks). Kênh có template: A (comp TietKiem), B (comp ThongThai). C, D, E bỏ qua đến khi có template.
+
+1. Tìm hàng có cột E "TRẠNG THÁI SP" = "Done Voice". Với mỗi kênh A (script H, voice I, trạng thái J) và B (script L, voice M, trạng thái N): chỉ dựng khi trạng thái kênh = "Done Voice" và ô link video tương ứng (AF cho A, AG cho B) còn trống.
+2. Số SP lấy từ tên file voice (SP5_kenhA.mp3 → 5). Clip ở `Aff Tiktok/Source Sản Phẩm/<số>. <tên>/`, voice ở `Aff Tiktok/Voice/`, video xuất vào `Aff Tiktok/Video/`.
+3. Chọn clip: xem khung hình; bỏ clip có chữ/watermark của video khác hoặc claim lạ; không đủ clip sạch thì bỏ qua SP và ghi chú vào AF/AG "Thiếu clip sạch".
+4. `scripts/prep_clip.sh` tạo clip boomerang; `scripts/build_props.py` tạo props (mỗi đoạn script = 1 cảnh). Chữ lead/big/line/small chỉ lấy sự thật trong script, không thêm claim.
+5. `npx remotion render src/index.ts TietKiem|ThongThai out/<tên>.mp4 --props=...`. Kiểm tra vài khung (chữ trong vùng an toàn, sub không đè), độ dài video ≈ voice + 0,8s.
+6. Ghi video vào thư mục Video, đặt tên `AFF-SP<số>_kenh<A|B>_<tên-sp>.mp4`, ghi tên file vào AF/AG của hàng đó.
