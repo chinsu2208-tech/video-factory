@@ -2,7 +2,7 @@ import { VideoContent } from "../scenes/SceneRunner";
 
 // PR "Bộ Văn phòng ảo AI" (vanphongao.hynexvn.com) — nhánh Media, ~45s, chữ + sfx (chưa voice).
 // Clip trong điện thoại quay từ landing + bản demo văn phòng 3D (public/clips/vpa-*.mp4).
-// Số liệu trong video lấy từ trang landing (14 chương, 8 bàn AI, 8 style, 399k/999k).
+// Số liệu trong video lấy từ trang landing (14 chương, 8 bàn AI, 8 style). Không công khai giá: CTA mời comment.
 const phone = { showUI: false, phoneWidth: 430 };
 
 export const vanphongaoPr: VideoContent = {
@@ -113,7 +113,7 @@ export const vanphongaoPr: VideoContent = {
       type: "cta",
       duration: 135,
       sfx: [{ at: 30, name: "ding" }],
-      props: { emoji: "🏢", headline: "Văn phòng ảo AI", sub: "Giá ra mắt 399.000đ, gốc 999.000đ", button: "Comment “VĂN PHÒNG”" },
+      props: { emoji: "🏢", headline: "Văn phòng ảo AI", sub: "Comment để nhận bộ + giá ưu đãi", button: "Comment “VĂN PHÒNG”" },
     },
   ],
 };
