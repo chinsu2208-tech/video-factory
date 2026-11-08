@@ -8,7 +8,7 @@ import {
   AnimatedHeadline, AppWindow, BeforeAfter, BrowserWindow, ChatConversation, ChatMessage, ClickRipple, CTA, Confetti, Cursor, FlowDiagram,
   InfoCard, KineticText, Notification, PhoneMockup, PhoneVideo, ProductShowcase, SceneBg, Sticker, Squiggle, Tooltip, cardStyle, useEnter, useFloat, useHynex, ToneName,
 } from "../../core-components";
-import { Stage } from "../../scenes/SceneRunner";
+import { Stage, stageWidth } from "../../scenes/SceneRunner";
 
 /** Emoji cảm xúc bay lên (tim, lửa...) quanh điện thoại */
 const Reactions: React.FC<{ items: string[]; x: number; y: number; start?: number }> = ({ items, x, y, start = 0 }) => {
@@ -115,7 +115,7 @@ export const MediaPhoneDemo: React.FC<{ headline: string; src?: string; caption?
   headline, src, caption, stickers = [], reactions = ["❤️", "🔥", "😍", "👏"], tone = "violet", startFrom = 0, showUI = true, phoneWidth = 400,
 }) => {
   const W = phoneWidth;
-  const left = (677 - W) / 2;
+  const left = (stageWidth(useHynex().orientation) - W) / 2;
   return (
     <SceneBg tone={tone}>
       <Stage justify="start" gap={18}>

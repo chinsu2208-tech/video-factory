@@ -14,6 +14,7 @@
     "render:b2b-service": "remotion render render/index.ts B2BService out/b2b-service-video.mp4",
     "render:hx01": "remotion render render/index.ts HX01 out/hx-01.mp4",
     "cover:hx01": "remotion still render/index.ts HX01 out/hx-01-cover.png --frame=45",
+    "render:vanphongao-square": "remotion render render/index.ts VanPhongAoSquare out/vanphongao-square.mp4",
     "render:vanphongao": "remotion render render/index.ts VanPhongAoPR out/vanphongao-pr.mp4",
     "typecheck": "tsc --noEmit"
   },

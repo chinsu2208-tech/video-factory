@@ -167,7 +167,7 @@ export const Frame: React.FC<FrameProps> = ({ branch, orientation = "vertical", 
 export const Wordmark: React.FC<{ orientation: Orientation }> = ({ orientation }) => {
   const { theme, branch } = useHynex();
   const f = format[orientation];
-  const top = orientation === "vertical" ? 78 : 30;
+  const top = orientation === "vertical" ? 78 : orientation === "square" ? 28 : 30;
   const p = useEnter(0, "pop");
   const tag = branchTheme[branch].name.replace("Hynex ", "");
   if (branch === "real") return null; // nhánh Real: không đặt nhãn thương hiệu ở góc, logo chỉ xuất hiện ở cảnh kết

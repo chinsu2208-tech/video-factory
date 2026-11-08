@@ -16,6 +16,10 @@ import { b2bDemo } from "../content/b2b-demo";
 import { b2bServiceVideo } from "../content/b2b-service-video";
 import { b2bBenefitVideo } from "../content/b2b-benefit-video";
 import { vanphongaoPr } from "../content/vanphongao-pr";
+import { vanphongaoSquare } from "../content/vanphongao-square";
+
+// Media + cảnh so sánh (versus) của B2B, dùng cho video so sánh tiết kiệm.
+const mediaVersusRegistry = { ...mediaRegistry, versus: b2bRegistry.versus };
 
 // Thêm video mới = thêm 1 file content + 1 dòng ở đây. Không cần viết lại animation.
 const videos = [
@@ -28,6 +32,7 @@ const videos = [
   { name: "RealHooks", content: realHookStyles, registry: realRegistry },
   { name: "HX01", content: hx01, registry: realRegistry },
   { name: "VanPhongAoPR", content: vanphongaoPr, registry: mediaRegistry },
+  { name: "VanPhongAoSquare", content: vanphongaoSquare, registry: mediaVersusRegistry },
   { name: "RealPalettes", content: realPalettesDemo, registry: realRegistry },
 ];
 

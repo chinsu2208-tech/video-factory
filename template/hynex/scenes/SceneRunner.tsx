@@ -19,13 +19,18 @@ export type VideoContent = {
 export type SceneRegistry = Record<string, React.FC<any>>;
 
 export const VERTICAL_ZOOM = 1.25;
+/** 1:1: thu nhẹ để bố cục dọc vừa khung vuông. */
+export const SQUARE_ZOOM = 1.05;
+export const zoomFor = (o: Orientation) => (o === "vertical" ? VERTICAL_ZOOM : o === "square" ? SQUARE_ZOOM : 1);
+/** Bề rộng logic của Stage (sau zoom), dùng để căn giữa phần tử đặt tuyệt đối. */
+export const stageWidth = (o: Orientation) => safeBox(o).w / zoomFor(o);
 export const totalFrames = (c: VideoContent) => c.scenes.reduce((a, s) => a + s.duration, 0);
 
 /** Khung vùng nội dung: fill safe box. 9:16 phóng 1.25x để chữ đủ lớn trên điện thoại. */
 export const Stage: React.FC<{ children: React.ReactNode; justify?: "start" | "center" | "end" | "space-between"; gap?: number; direction?: "column" | "row" }> = ({ children, justify = "center", gap = 32, direction = "column" }) => {
   const { orientation } = useHynex();
   const b = safeBox(orientation);
-  const z = orientation === "vertical" ? VERTICAL_ZOOM : 1;
+  const z = zoomFor(orientation);
   return (
     <div style={{ width: b.w, height: b.h }}>
       <div style={{ zoom: z, width: b.w / z, height: b.h / z, display: "flex", flexDirection: direction, justifyContent: justify, gap }}>{children}</div>

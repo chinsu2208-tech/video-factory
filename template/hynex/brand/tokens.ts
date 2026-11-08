@@ -3,7 +3,7 @@
 // Mọi component đọc từ đây. Đổi ở đây = đổi cả hệ thống.
 
 export type Branch = "edu" | "media" | "b2b" | "real";
-export type Orientation = "vertical" | "horizontal";
+export type Orientation = "vertical" | "horizontal" | "square";
 
 export const color = {
   // Lõi thương hiệu (từ logo)
@@ -185,6 +185,8 @@ export const motion = {
 export const format = {
   vertical: { width: 1080, height: 1920, safe: { top: 220, bottom: 420, left: 64, right: 170 } },
   horizontal: { width: 1920, height: 1080, safe: { top: 130, bottom: 72, left: 96, right: 96 } },
+  // 1:1 cho feed Facebook/Instagram: chừa trên cho nhãn Hynex.
+  square: { width: 1080, height: 1080, safe: { top: 112, bottom: 48, left: 60, right: 60 } },
 } as const;
 
 export const safeBox = (o: Orientation) => {
