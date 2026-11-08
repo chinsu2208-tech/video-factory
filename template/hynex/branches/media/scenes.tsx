@@ -111,10 +111,10 @@ const ResultLine: React.FC<{ text: string; delay: number }> = ({ text, delay }) 
 };
 
 /** PHONE DEMO: điện thoại chiếu video thành phẩm + sticker + cảm xúc bay lên */
-export const MediaPhoneDemo: React.FC<{ headline: string; src?: string; caption?: string; stickers?: { text: string; emoji?: string; tone?: string; x: number; y: number; rotate?: number; at: number }[]; reactions?: string[]; tone?: ToneName; startFrom?: number }> = ({
-  headline, src, caption, stickers = [], reactions = ["❤️", "🔥", "😍", "👏"], tone = "violet", startFrom = 0,
+export const MediaPhoneDemo: React.FC<{ headline: string; src?: string; caption?: string; stickers?: { text: string; emoji?: string; tone?: string; x: number; y: number; rotate?: number; at: number }[]; reactions?: string[]; tone?: ToneName; startFrom?: number; showUI?: boolean; phoneWidth?: number }> = ({
+  headline, src, caption, stickers = [], reactions = ["❤️", "🔥", "😍", "👏"], tone = "violet", startFrom = 0, showUI = true, phoneWidth = 400,
 }) => {
-  const W = 400;
+  const W = phoneWidth;
   const left = (677 - W) / 2;
   return (
     <SceneBg tone={tone}>
@@ -123,7 +123,7 @@ export const MediaPhoneDemo: React.FC<{ headline: string; src?: string; caption?
         <div style={{ position: "relative", height: Math.round(W * 2.05) + 24 }}>
           <div style={{ position: "absolute", left, top: 6 }}>
             <PhoneMockup width={W} delay={6} rotate={-2}>
-              <PhoneVideo src={src} startFrom={startFrom} caption={caption} width={W} />
+              <PhoneVideo src={src} startFrom={startFrom} caption={caption} width={W} showUI={showUI} />
             </PhoneMockup>
           </div>
           {stickers.map((s, i) => (

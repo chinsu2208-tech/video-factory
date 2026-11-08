@@ -15,6 +15,7 @@ import { mediaDemo } from "../content/media-demo";
 import { b2bDemo } from "../content/b2b-demo";
 import { b2bServiceVideo } from "../content/b2b-service-video";
 import { b2bBenefitVideo } from "../content/b2b-benefit-video";
+import { vanphongaoPr } from "../content/vanphongao-pr";
 
 // Thêm video mới = thêm 1 file content + 1 dòng ở đây. Không cần viết lại animation.
 const videos = [
@@ -26,6 +27,7 @@ const videos = [
   { name: "RealDemo", content: realDemo, registry: realRegistry },
   { name: "RealHooks", content: realHookStyles, registry: realRegistry },
   { name: "HX01", content: hx01, registry: realRegistry },
+  { name: "VanPhongAoPR", content: vanphongaoPr, registry: mediaRegistry },
   { name: "RealPalettes", content: realPalettesDemo, registry: realRegistry },
 ];
 
