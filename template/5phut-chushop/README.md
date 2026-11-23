@@ -65,3 +65,6 @@ Giữ nguyên khung, chỉ thay "áo": màu trong `src/brand.ts`, icon trong `pu
 - Dữ liệu trong `episode.json` hiện là **bản mẫu** (nhãn BẢN MẪU trên video). Kiểm tra lại số liệu, văn bản trước khi đăng.
 - Font Be Vietnam Pro nằm sẵn trong `public/fonts`, không cần mạng khi render.
 - Lồng tiếng: thêm `<Audio>` từ `@remotion/media` vào `src/Episode.tsx` (file giọng đọc AI đặt trong `public/`).
+
+## Brand guideline
+Xem thư mục `brand/`: README (giọng văn, màu, chữ, khung video, điều không làm), `tokens.json`, logo, icon, khung mẫu.

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 980" width="600" height="980" font-family="Manrope, Inter, Arial, sans-serif">
+<rect width="600" height="980" fill="#F8FAFC"></rect>
+<rect x="20" y="20" width="560" height="940" rx="16" fill="#fff" stroke="#E5E7EB" stroke-width="2"></rect>
+<g transform="translate(48 48) scale(0.42)"><rect width="96" height="96" rx="22" fill="#0B1F44"></rect><path d="M58 24H38l-3 22c4-3 9-4 14-3 8 2 12 9 10 16-2 9-12 13-21 10-4-1-7-4-9-7" fill="none" stroke="#C8FF00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="76" cy="20" r="8" fill="#2563FF"></circle></g><text x="100" y="72" font-size="20" font-weight="800" fill="#0B1F44">5-MINUTE AI</text><text x="100" y="92" font-size="12" font-weight="700" fill="#2563FF" letter-spacing="2">BY HYNEX</text>
+<text x="552" y="72" text-anchor="end" font-size="14" font-weight="700" fill="#475569">Mon, Nov 23</text>
+<text x="48" y="146" font-size="26" font-weight="800" fill="#0B1F44">Good morning. 3 AI moves today.</text>
+<text x="48" y="176" font-size="16" fill="#475569">Watch in 5 minutes, or skim the notes below.</text>
+<g transform="translate(48 200) scale(0.39)"><rect width="1280" height="720" rx="24" fill="#0B1F44"></rect><circle cx="640" cy="360" r="90" fill="#C8FF00"></circle><path d="M612 312l74 48-74 48z" fill="#0B1F44"></path><text x="72" y="140" font-size="64" font-weight="800" fill="#fff">Today's 3 AI moves</text></g>
+<text x="48" y="500" font-size="12" fill="#475569">Thumbnail links to the members page</text>
+<rect x="48" y="520" width="504" height="64" rx="12" fill="#2563FF"></rect><text x="300" y="560" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">Watch today's brief  ▶</text>
+<text x="48" y="636" font-size="14" font-weight="800" fill="#2563FF" letter-spacing="1.5">IN TODAY'S BRIEF</text>
+<circle cx="56" cy="670" r="6" fill="#2563FF"></circle><text x="74" y="676" font-size="17" fill="#0B1F44">Headline one, under 12 words</text>
+<circle cx="56" cy="710" r="6" fill="#2563FF"></circle><text x="74" y="716" font-size="17" fill="#0B1F44">Headline two, with the number that matters</text>
+<circle cx="56" cy="750" r="6" fill="#2563FF"></circle><text x="74" y="756" font-size="17" fill="#0B1F44">Headline three, with a deadline</text>
+<rect x="48" y="790" width="504" height="70" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="2"></rect>
+<text x="68" y="822" font-size="15" font-weight="800" fill="#0B1F44">Workflow of the week</text><text x="68" y="846" font-size="14" fill="#475569">Pro members: template inside</text>
+<text x="300" y="910" text-anchor="middle" font-size="12" fill="#475569">Manage your membership on Gumroad · Unsubscribe</text>
+<text x="300" y="932" text-anchor="middle" font-size="12" fill="#475569">Hynex · hynexvn.com</text>
+</svg>

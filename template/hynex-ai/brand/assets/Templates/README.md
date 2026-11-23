@@ -1,0 +1,1 @@
+Mẫu bố cục: `email-thumbnail` 1280×720 (ảnh gửi mỗi sáng), `email-layout` email 600px, `video-frame` khung video 9:16 có vùng an toàn, `web-members` trang thành viên trên web Hynex (có thẻ Pro bị khóa). Nội dung chữ trong mẫu chỉ là ví dụ.

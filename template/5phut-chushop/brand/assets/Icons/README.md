@@ -1,0 +1,1 @@
+12 icon 48×48, nét 3px, đen `ink` + chi tiết nhấn `flame` hoặc `alert`: tin-nong, thue, hoa-don, phi-san, han-chot, viec-can-lam, canh-bao, bieu-do-tang, gio-hang, kho, voucher, ai-chip (Góc AI). Dùng trong video ở cỡ 96–140px, trên web 24–32px.

@@ -1,0 +1,1 @@
+Khung video mẫu 1080×1920 trên nền `night`, đường đứt nét là vùng an toàn TikTok (không hiện khi xuất video). `khung-the-tin`: thẻ tin với ô ảnh hưởng ai và cần làm gì. `khung-so-lieu`: thẻ con số hôm nay. Nội dung trong khung chỉ là minh họa.

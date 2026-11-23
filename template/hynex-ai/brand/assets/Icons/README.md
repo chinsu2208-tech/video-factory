@@ -1,0 +1,1 @@
+10 icon 48×48, nét 3px navy, chi tiết nhấn Hynex Blue. Mỗi icon ứng với một nhãn tin: NEW TOOL (new-tool), MODEL UPDATE (ai-model), WORKFLOW (workflow), PROMPT (prompt), AGENT (agent), PRICE CHANGE (pricing), GROWTH (chart-up), HEADS-UP (alert), DONE/TODO (check), WATCH (play).

@@ -1,0 +1,1 @@
+Logo 5 Phút Chủ Shop: ô vuông bo góc `flame` với số 5 trắng và chấm `ink` (đồng hồ 5 phút). `5p-mark` dùng cho avatar kênh, góc video; `5p-wordmark` cho banner, đầu bản tin. Chừa khoảng trống quanh logo ít nhất bằng 1/4 chiều cao ô. Chữ trong wordmark cần font Be Vietnam Pro để hiển thị đúng.

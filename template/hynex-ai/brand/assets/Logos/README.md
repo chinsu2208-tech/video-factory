@@ -1,0 +1,1 @@
+Logo 5-Minute AI: ô vuông navy bo góc, số 5 lime, chấm Hynex Blue. `5m-mark` cho avatar kênh, favicon, góc thumbnail; `5m-wordmark` (kèm "BY HYNEX") cho đầu email, header web. Chữ trong wordmark cần font Manrope để hiển thị đúng.

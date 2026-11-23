@@ -53,3 +53,6 @@ Mỗi cảnh: chip số thứ tự, chip loại tin, chip tên hãng (chữ) →
 ## Màu (src/brand.ts)
 `bg #0B1F44` · `bg2 #16306A` · `bg3 #1C3A7A` · `line #2A4785` · `blue #2563FF` · `blueSoft #5B8CFF` · `lime #C8FF00` · `muted #A9B6D3`.
 Lime chỉ đặt trên navy hoặc làm nền cho chữ navy. Không gradient tím xanh, không mascot robot.
+
+## Brand guideline
+Xem thư mục `brand/`: README (giọng văn, màu, chữ, khung video, điều không làm), `tokens.json`, logo, icon, khung mẫu.

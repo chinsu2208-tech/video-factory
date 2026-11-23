@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="640" height="360" font-family="Manrope, Inter, Arial, sans-serif">
+<rect width="1280" height="720" fill="#0B1F44"></rect>
+<rect x="72" y="80" width="300" height="56" rx="28" fill="#C8FF00"></rect><text x="222" y="118" text-anchor="middle" font-size="26" font-weight="800" fill="#0B1F44">MON · NOV 23</text>
+<text x="72" y="250" font-size="74" font-weight="800" fill="#fff">Today's</text>
+<rect x="64" y="282" width="420" height="92" rx="12" fill="#C8FF00" transform="rotate(-1.2 274 328)"></rect>
+<text x="76" y="352" font-size="74" font-weight="800" fill="#0B1F44">3 AI moves</text>
+<text x="72" y="452" font-size="74" font-weight="800" fill="#fff">for online shops</text>
+<text x="72" y="530" font-size="30" font-family="Playfair Display, Georgia, serif" font-style="italic" fill="#C9D3E8">What changed, what it costs, what to do.</text>
+<g transform="translate(72 592) scale(0.75)"><rect width="96" height="96" rx="22" fill="#0B1F44"></rect><path d="M58 24H38l-3 22c4-3 9-4 14-3 8 2 12 9 10 16-2 9-12 13-21 10-4-1-7-4-9-7" fill="none" stroke="#C8FF00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="76" cy="20" r="8" fill="#2563FF"></circle></g><text x="160" y="642" font-size="28" font-weight="800" fill="#fff">5-MINUTE AI</text><text x="160" y="670" font-size="18" font-weight="700" fill="#2563FF" letter-spacing="2">BY HYNEX</text>
+<rect x="880" y="60" width="330" height="600" rx="40" fill="#16306A" stroke="#2563FF" stroke-width="6"></rect>
+<rect x="920" y="120" width="150" height="34" rx="17" fill="#fff"></rect><text x="995" y="144" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1F44">NEWS 01/03</text>
+<rect x="920" y="180" width="250" height="20" rx="10" fill="#fff" opacity=".9"></rect><rect x="920" y="212" width="190" height="20" rx="10" fill="#C8FF00"></rect>
+<rect x="920" y="470" width="250" height="70" rx="14" fill="#0B1F44"></rect><rect x="920" y="555" width="250" height="70" rx="14" fill="#2563FF"></rect>
+<circle cx="1045" cy="360" r="78" fill="#C8FF00"></circle><path d="M1022 318l64 42-64 42z" fill="#0B1F44"></path>
+<rect x="1100" y="610" width="96" height="40" rx="20" fill="#000" opacity=".55"></rect><text x="1148" y="637" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">5:00</text>
+</svg>
