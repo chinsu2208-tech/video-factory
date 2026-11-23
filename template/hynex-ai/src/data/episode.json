@@ -1,0 +1,51 @@
+{
+  "lang": "en",
+  "date": "MON · NOV 23",
+  "sample": true,
+  "scenes": [
+    {
+      "type": "breaking",
+      "maker": "Sample Lab",
+      "title": "A new model **Nova 2** just launched",
+      "motion": { "kind": "launch", "name": "Nova 2", "maker": "Sample Lab" },
+      "note": "Cheaper replies for **customer chat** at the same quality"
+    },
+    {
+      "type": "tool",
+      "title": "One click turns **photos into ads**",
+      "motion": { "kind": "screen", "app": "Ad Studio", "button": "Generate ad" },
+      "note": "Make **5 ad variants** from one product photo"
+    },
+    {
+      "type": "battle",
+      "title": "**Model A vs Model B** for product copy",
+      "motion": {
+        "kind": "battle",
+        "a": "Model A",
+        "b": "Model B",
+        "rows": [
+          { "label": "Quality score", "a": 86, "b": 81 },
+          { "label": "Speed (s)", "a": 4.2, "b": 2.1, "unit": "s", "lowerIsBetter": true },
+          { "label": "Cost per 1K items", "a": 12, "b": 7, "unit": "$", "lowerIsBetter": true }
+        ]
+      },
+      "note": "Use B for **bulk listings**, A for your hero products"
+    },
+    {
+      "type": "usecase",
+      "title": "Auto-reply to **every order message**",
+      "motion": { "kind": "aiworkflow", "steps": ["New message arrives", "AI reads order status", "Draft reply in your tone", "You approve in 1 tap"] },
+      "note": "Start with your **top 10 FAQs** before going live"
+    },
+    {
+      "type": "tip",
+      "title": "Prompt of the day: **better listings**",
+      "motion": {
+        "kind": "prompt",
+        "prompt": "Rewrite this product title for search. Keep it under 80 characters.",
+        "output": ["Leads with the main keyword", "Adds size and material", "Drops filler words"]
+      },
+      "note": "Paste **3 best-sellers** and compare clicks in a week"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "date": "Thứ Hai, 23/11/2026",
+  "sample": true,
+  "ticker": [
+    "Hộ kinh doanh chuyển sang kê khai theo doanh thu thật",
+    "TikTok Shop thu phí xử lý 3.000đ mỗi đơn",
+    "Hạn nộp tờ khai thuế quý 4: 31/01/2027"
+  ],
+  "news": [
+    {
+      "kind": "policy",
+      "title": "Từ 2026 hộ kinh doanh **bỏ thuế khoán**",
+      "affects": "**Hộ kinh doanh**, chủ shop bán trên sàn đang nộp thuế khoán",
+      "action": "Chuẩn bị **kê khai theo doanh thu thật**, giữ đủ hóa đơn chứng từ",
+      "source": "Thông tin Bộ Tài chính, áp dụng từ 01/01/2026",
+      "visual": "stamp",
+      "pop": "01/01/2026",
+      "shot": {
+        "src": "shots/mau-nguon.png",
+        "ratio": 1.6,
+        "focus": {
+          "x": 0.03,
+          "y": 0.17,
+          "w": 0.72,
+          "h": 0.13
+        },
+        "label": "Ảnh chụp văn bản",
+        "source": "Bộ Tài chính"
+      }
+    },
+    {
+      "kind": "cost",
+      "title": "TikTok Shop tăng **phí giao dịch**",
+      "affects": "Mọi **nhà bán TikTok Shop**, lãi mỗi đơn mỏng đi",
+      "action": "Tính lại **giá bán và lãi theo SKU** trước mùa Tết",
+      "source": "TikTok Shop Seller Center, áp dụng từ 09/05/2026",
+      "chart": {
+        "type": "price",
+        "from": "5%",
+        "to": "6%",
+        "label": "Phí giao dịch trên giá trị đơn",
+        "up": true
+      },
+      "pop": "+1%"
+    },
+    {
+      "kind": "urgent",
+      "title": "Còn **69 ngày** đến hạn tờ khai quý 4",
+      "affects": "Doanh nghiệp, hộ kê khai **theo quý**",
+      "action": "Đối chiếu **hóa đơn đầu vào, đầu ra** ngay từ tuần này",
+      "source": "Luật Quản lý thuế: hạn là ngày cuối tháng đầu quý sau",
+      "visual": "receipt",
+      "pop": "31/01"
+    }
+  ],
+  "number": {
+    "to": 17,
+    "suffix": "%",
+    "label": "thuế TNDN cho doanh nghiệp **doanh thu 3–50 tỷ**/năm",
+    "source": "Luật Thuế TNDN 2025, từ kỳ tính thuế 2025",
+    "price": {
+      "from": "20%",
+      "to": "17%",
+      "label": "So với mức chung",
+      "up": false
+    }
+  },
+  "deadline": {
+    "day": 31,
+    "month": "THÁNG 1 · 2027",
+    "daysLeft": 69,
+    "label": "Hạn nộp **tờ khai thuế quý 4/2026**"
+  },
+  "todo": [
+    "Xuất báo cáo lãi theo SKU tuần này",
+    "Rà hóa đơn đầu vào còn thiếu",
+    "Cập nhật giá bán sau phí mới"
+  ],
+  "cta": "Bình luận BẢN TIN"
+}
